@@ -9,11 +9,12 @@ through pull requests and collected into a shared manuscript.
 
 ## Questions
 
-The question register is initially empty. Propose the first question in a
-pull request; see [Contributing](CONTRIBUTING.md).
+Questions and subquestions are proposed through pull requests; see
+[Contributing](CONTRIBUTING.md).
 
 | Question | Solved | Human-checked solution | Formalized | Human-checked formalization |
 | --- | --- | --- | --- | --- |
+| [Q1: Implication for disjunctions of dependence atoms](questions/Q1.md) | no | no | no | no |
 
 All four status fields use `yes`, `no`, or `partially`. A question's page in
 [`questions/`](questions/) records its precise statement, subquestions,
