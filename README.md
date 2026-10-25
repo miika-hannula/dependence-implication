@@ -15,6 +15,8 @@ Questions and subquestions are proposed through pull requests; see
 | Question | Solved | Human-checked solution | Formalized | Human-checked formalization |
 | --- | --- | --- | --- | --- |
 | [Q1: Complexity of implication for disjunctions of dependence atoms](questions/Q1.md) | yes | no | yes | no |
+| &emsp;↳ [Q1.1: Syntactic restrictions for decidable implication](questions/Q1.1.md) | no | no | no | no |
+| &emsp;↳ [Q1.2: Syntactic restrictions for PTIME implication](questions/Q1.2.md) | no | no | no | no |
 
 All four status fields use `yes`, `no`, or `partially`. A question's page in
 [`questions/`](questions/) records its precise statement, subquestions,

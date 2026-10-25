@@ -53,6 +53,72 @@ mathematical team**, not the size of an encoded search witness. For every
 computable proposed bound, some invalid restricted instance requires
 more rows in every finite counterteam, over every value domain.
 
+## Correspondence with the TeX note (AI review)
+
+Codex reviewed the [TeX note](../../../ai-tex/Q1/source.tex) against the
+Lean definitions and main proof chain on 2026-10-25. The AI assessment
+found no mismatch in the main theorem, its fixed consequent and syntactic
+restrictions, or the counterteam-size corollary. It traced both directions
+of the semantic reduction and the computability certificates. Human review
+of the statement and proof correspondence remains pending.
+
+The following differences delimit what is formalized:
+
+- **Polynomial-size compilation is not formalized.** The TeX compilation
+  lemma claims polynomial output size in the input Boolean circuit
+  description. [CompilerBooleanInterface](CompilerBooleanInterface.lean)
+  first represents row predicates by Shannon expansion. The final certified
+  reduction uses explicit DNF in [BooleanDNF](BooleanDNF.lean) and
+  [RawCompiler](RawCompiler.lean); [MachineRowVariant](MachineRowVariant.lean)
+  proves that this change preserves the semantic reduction. Lean proves
+  `RawCompiler.primrec_reduction` and `Complexity.primrec_reduction`, but no
+  polynomial output-size or running-time bound. This suffices for the main
+  theorem's computable many-one reductions; it does not certify every
+  quantitative claim in the TeX compilation discussion.
+
+- **The finite-character argument uses a different compactness interface.**
+  The TeX proof introduces propositional variables and invokes propositional
+  compactness. [Compactness](Compactness.lean) instead uses mathlib's Rado
+  selection principle to combine finite row colourings. It proves the same
+  finite-character statement and `finiteEntails_iff_entails`.
+
+- **Source-machine hardness is expanded into a checked simulation chain.**
+  The TeX note cites two-counter-machine halting and describes the required
+  normalization. Lean starts from mathlib's partial-recursive evaluator,
+  proves universality in [UniversalHardness](UniversalHardness.lean), and
+  passes through stack and register machines to normalized two-counter
+  programs. [UniversalCounterProgram](UniversalCounterProgram.lean) proves
+  both the halting equivalence and primitive recursiveness of the varying
+  input codes. The fixed machine and its finite label numbering may use
+  classical choice; no undecidability or universality hypothesis remains
+  in the final classification.
+
+- **The input representation is slightly more general.** The TeX problem
+  has nonempty disjunctions over the finitely many occurring variables and
+  a finite set of premises. [CodedSyntax](CodedSyntax.lean) uses lists and
+  natural-number variable names; its ambient syntax also admits empty
+  disjunctions. [FiniteVariables](FiniteVariables.lean) proves finite-variable
+  normalization. Premise repetitions do not affect `Models`, while repeated
+  atom occurrences are retained by `Sat`. The hardness outputs have nonempty
+  premises and the literal six-occurrence consequent, as checked by
+  `Complexity.fixed_hardness_restricted`, so they lie in the TeX input
+  language. Lean also quantifies over empty value types; with natural-number
+  variables these supply only the empty team and do not change implication.
+
+The central Hall saturation, control path, complete token matchings,
+counter updates, three-marker compiler, and fixed-consequent argument
+follow the TeX construction. In particular,
+`SemanticMachine.Countermodel.halts` derives halting from the semantic
+premises and target failure; it does not assume that the needed ports or
+computation already exist. The converse constructs a finite counterteam
+from a halting run. Finally, `SmallCounterteam` measures `Nat.card T`, so
+the no-computable-bound result concerns the actual number of team rows,
+as in the TeX corollary.
+
+The library build and all 165 principal theorem axiom checks passed during
+the import. This machine check and the AI correspondence assessment are
+recorded separately from the two human-review status fields.
+
 ## Proof chain
 
 ```mermaid
