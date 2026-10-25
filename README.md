@@ -14,7 +14,7 @@ Questions and subquestions are proposed through pull requests; see
 
 | Question | Solved | Human-checked solution | Formalized | Human-checked formalization |
 | --- | --- | --- | --- | --- |
-| [Q1: Complexity of implication for disjunctions of dependence atoms](questions/Q1.md) | no | no | no | no |
+| [Q1: Complexity of implication for disjunctions of dependence atoms](questions/Q1.md) | yes | no | no | no |
 
 All four status fields use `yes`, `no`, or `partially`. A question's page in
 [`questions/`](questions/) records its precise statement, subquestions,
