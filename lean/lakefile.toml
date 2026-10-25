@@ -1,0 +1,10 @@
+name = "depdis"
+version = "0.1.0"
+defaultTargets = ["DepDis"]
+
+[leanOptions]
+autoImplicit = false
+warningAsError = true
+
+[[lean_lib]]
+name = "DepDis"

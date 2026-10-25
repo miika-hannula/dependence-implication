@@ -1,0 +1,72 @@
+# LaTeX auxiliary files
+*.aux
+*.log
+*.out
+*.toc
+*.lof
+*.lot
+*.lol
+*.loa
+*.fls
+*.fdb_latexmk
+*.synctex
+*.synctex.gz
+*.synctex(busy)
+*.synctex.gz(busy)
+*.pdfsync
+*.dvi
+*.xdv
+
+# Bibliographies, indexes and glossaries
+*.bbl
+*.bcf
+*.blg
+*.run.xml
+*.idx
+*.ind
+*.ilg
+*.glg
+*.glo
+*.gls
+*.glsdefs
+*.acn
+*.acr
+*.alg
+*.nlo
+*.nls
+*.nlg
+
+# Presentation and multi-file document auxiliaries
+*.nav
+*.snm
+*.vrb
+*.thm
+*.maf
+*.mtc*
+*.loe
+*.tdo
+*.spl
+*-eps-converted-to.pdf
+_minted*/
+
+# Lean build products and local toolchains
+.lake/
+.toolchain
+.elan/
+*.olean
+*.ilean
+*.trace
+
+# Local build and cache directories
+build/
+tmp/
+.cache/
+__pycache__/
+
+# Editor backups and operating-system files
+*~
+*.swp
+*.swo
+.DS_Store
+._*
+Thumbs.db
